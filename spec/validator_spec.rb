@@ -11,7 +11,7 @@ describe 'End-to-end test' do
 
         result = Validator.validate(file)
 
-        expect(result).to eq 'Sudoku ir derīgs.'
+        expect(result).to eq 'Sudoku is valid.'
       end
     end
 
@@ -21,7 +21,7 @@ describe 'End-to-end test' do
 
         result = Validator.validate(file)
 
-        expect(result).to eq 'Sudoku ir derīgs, bet nepabeigts.'
+        expect(result).to eq 'Sudoku is valid but incomplete.'
       end
     end
   end
@@ -36,7 +36,7 @@ describe 'End-to-end test' do
         result = Validator.validate(File.read(fixture))
 
         expect(result).to(
-          eq('Sudoku ir nederīgs.'),
+          eq('Sudoku is invalid.'),
           "Expected #{fixture} to be invalid but it wasn't."
         )
       end

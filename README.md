@@ -1,48 +1,50 @@
-# Sudoku validators
+# Sudoku validator
 
-## Uzdevuma apraksts
+## Description
 
-Uzrakstīt kodu, kas pārbauda, vai teksts atbilst pareizam [sudoku](https://en.wikipedia.org/wiki/Sudoku) mīklas izkārtojumam (pilnīgi vai nepilnīgi aizpildītam), un izprintē atbilstošu ziņu.
+Write code to check if a given string is a correct [sudoku](https://en.wikipedia.org/wiki/Sudoku) puzzle and return a message indicating whether the puzzle is valid, invalid or valid and incomplete.
 
-## Uzdevuma uzstādīšana
+## Setup
 
-Pirmajā programmas darbināšanas reizē nepieciešams palaist:
+After cloning the repository, run the following command:
 
 ```sh
 bin/setup
 ```
 
-Pēc tam uzdevumu var palaist:
+## Usage
+
+The program can be run via `rake run`:
 
 ```sh
-  rake run <ceļš uz failu, kuru validēt>
+  rake run <path to the sudoku file to validate>
 ```
 
-Atkarībā no tā, kā sudoku ir aizpildīts, atgriež atšķirīgu tekstu
+Depending on the contents of the sudoku puzzle, the program should return a different result
 
-* Ja mīkla ir derīga un pilnīgi aizpildīta, atgriež `Sudoku ir derīgs.`
-* Ja mīkla ir derīga, bet nav pilnīgi aizpildīta, atgriež `Sudoku ir derīgs, bet nepabeigts.`
-* Ja mīkla nav derīga, atgriež `Sudoku ir nederīgs.`
+* If the puzzle is valid and completed, return `Sudoku is valid.`
+* If the puzzle is valid but not fully completed, return `Sudoku is valid but incomplete.`
+* If the puzzle is not valid, return `Sudoku is invalid.`
 
-Sudoku mīkla ir derīga, ja:
+A puzzle is valid if:
 
-1. Tai vienā rindā neatkārtojas cipari
-2. Tai vienā kolonnā neatkārtojas cipari
-3. Katrā apakšgrupā (deviņi mazie 3x3 kvadrātiņi) katrs cipars ir sastopams tikai vienreiz
+1. No numbers are repeated in any of the rows
+2. No numbers are repeated in any of the columns
+3. Every 9x9 square has no repeated numbers
 
-## Implementācija
+## Implementation
 
-Pamata kodu paredzēts rakstīt `lib/validator.rb` faila metodē `validate`, bet var brīvi veidot jaunas metodes un/vai failus un klases, kuras šī metode izmanto.
+Additions should be written to `lib/validator.rb` within the method `validate`, the creation of additional methods and classes is encouraged.
 
-## Kā zināt, ka viss strādā
+## Ensuring that the solution is valid
 
-Šim uzdevumam klāt pielikti testi, kas noklāj visus gadījumus. Sākotnēji visi pieci testi būs sarkani, jo vēlamā funkcionalitāte vēl nav izstrādāta. Ja tie ir zaļi, tad viss strādā, kā tam vajadzētu būt.
+This exercise contains unit tests that verify that the solution functions correctly. If all of the tests pass, the solution is correct.
 
-Testus iespējams palaist, izmantojot komandu `rake spec`.
+The tests can be run via `rake spec`.
 
-## Parauga ievades faila formāts
+## Example sudoku file format
 
-*Nulles apzīmē tukšās sudoku mīklas vietas*
+*Zeroes represent empty sudoku cells*
 ```
 8 5 0 |0 0 2 |4 0 0
 7 2 0 |0 0 0 |0 0 9
@@ -56,5 +58,3 @@ Testus iespējams palaist, izmantojot komandu `rake spec`.
 0 1 7 |0 0 0 |0 0 0
 0 0 0 |0 3 6 |0 4 0
 ```
-
-Ja ir vēlme, var uztaisīt vēl testpiemērus, tomēr esošie testpiemēri jau noklāj nepieciešamos gadījumus. Tos iespējams atrast šī projekta `spec/fixtures` direktorijā.
