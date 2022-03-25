@@ -2,13 +2,13 @@ const Validator = require('../src/validator')
 const fs = require('fs').promises
 
 describe('valid sudoku', () => {
-  test('recognizes completed sudoku', async () => {
+  test('recognizes a complete sudoku', async () => {
     const sudoku = await fs.readFile(__dirname + '/fixtures/valid_complete.sudoku')
 
     expect(Validator.validate(sudoku.toString())).toBe('Sudoku is valid.')
   })
 
-  test('recognizes incompleted sudoku', async () => {
+  test('recognizes an incomplete sudoku', async () => {
     const sudoku = await fs.readFile(__dirname + '/fixtures/valid_incomplete.sudoku')
 
     expect(Validator.validate(sudoku.toString())).toBe('Sudoku is valid.')
