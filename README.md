@@ -9,15 +9,15 @@ Write code to check if a given string is a correct [sudoku](https://en.wikipedia
 After cloning the repository, run the following command:
 
 ```sh
-bin/setup
+npm install
 ```
 
 ## Usage
 
-The program can be run via `rake run`:
+The program can be run via `bin/validate`:
 
 ```sh
-  rake run <path to the sudoku file to validate>
+  bin/validate <full path to the sudoku file to validate>
 ```
 
 Depending on the contents of the sudoku puzzle, the program should return a different result
@@ -34,13 +34,13 @@ A puzzle is valid if:
 
 ## Implementation
 
-Additions should be written to `lib/validator.rb` within the method `validate`, the creation of additional methods and classes is encouraged.
+Additions should be written to `src/validator.js` within the method `validate`, the creation of additional methods and classes is encouraged.
 
 ## Ensuring that the solution is valid
 
 This exercise contains unit tests that verify that the solution functions correctly. If all of the tests pass, the solution is correct.
 
-The tests can be run via `rake spec`.
+The tests can be run via `npm run test`.
 
 ## Example sudoku file format
 

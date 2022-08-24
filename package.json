@@ -1,0 +1,16 @@
+{
+  "name": "Sudoku validator",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dnamsons/sudoku-validator/issues"
+  },
+  "devDependencies": {
+    "jest": "^27.5.1"
+  }
+}
