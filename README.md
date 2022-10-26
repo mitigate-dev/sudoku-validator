@@ -31,6 +31,7 @@ A puzzle is valid if:
 1. No numbers are repeated in any of the rows
 2. No numbers are repeated in any of the columns
 3. Every 9x9 square has no repeated numbers
+4. Only numbers 1 - 9 are used to fill the puzzle (or 0 for empty cells)
 
 ## Implementation
 
