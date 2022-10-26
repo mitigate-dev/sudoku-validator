@@ -11,15 +11,15 @@ describe('valid sudoku', () => {
   test('recognizes an incomplete sudoku', async () => {
     const sudoku = await fs.readFile(__dirname + '/fixtures/valid_incomplete.sudoku')
 
-    expect(Validator.validate(sudoku.toString())).toBe('Sudoku is valid.')
+    expect(Validator.validate(sudoku.toString())).toBe('Sudoku is valid but incomplete.')
   })
 })
 
 describe('invalid sudoku', () => {
   [
-    __dirname + 'fixtures/invalid_due_to_row_dupe.sudoku',
-    __dirname + 'fixtures/invalid_due_to_column_dupe.sudoku',
-    __dirname + 'fixtures/invalid_due_to_subgroup_dupe.sudoku'
+    __dirname + '/fixtures/invalid_due_to_row_dupe.sudoku',
+    __dirname + '/fixtures/invalid_due_to_column_dupe.sudoku',
+    __dirname + '/fixtures/invalid_due_to_subgroup_dupe.sudoku'
   ].forEach(path => {
     test('recognizes invalid sudoku', async () => {
       const sudoku = await fs.readFile(path)
